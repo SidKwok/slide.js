@@ -27,7 +27,6 @@
         imgs: [],
         width: 600,
         height: 400,
-        pagination: true,
         autoswitch: {
             open: true,
             delay: 5000
@@ -39,8 +38,10 @@
         constructor(el, opt) {
             this.options = DEFAULT;
             this.$el = document.querySelector(el);
+            this.currentPage = 1;
             this.picsLayer = null;
             this.pics = null;
+            this.pagination = null;
 
             if (opt) {
                 for (let key in opt) {
@@ -75,9 +76,10 @@
 
             this.initImgs();
             this.initAnimation();
+            this.initPagination();
 
-            if (this.options.pagination) {
-                this.initPagination();
+            if (this.options.autoswitch.open) {
+                this.initAutoSwitch();
             }
         }
         initImgs() {
@@ -102,18 +104,15 @@
             let length = this.options.imgs.length;
             let pagination = document.createElement('div');
 
+            this.pagination = pagination;
+
             pagination.setAttribute('class', 'pagination');
 
             // animation
             pagination.addEventListener('click', (event) => {
                 let page = Number.parseInt(event.target.innerHTML);
                 if (page) {
-                    this.doAnimation(page);
-
-                    for (let a of pagination.children) {
-                        a.className = '';
-                    }
-                    event.target.className = 'active';
+                    this.switchSlide(page);
                 }
             }, false);
 
@@ -164,7 +163,26 @@
 
             }
         }
+        initAutoSwitch() {
+            let {delay} = this.options.autoswitch;
+            setInterval(() => {
+                this.switchSlide(this.currentPage + 1)
+            }, delay);
+        }
         doAnimation() {}
+        switchSlide(page) {
+            let pages = this.pagination.children;
+            if (page > this.options.imgs.length) {
+                page = 1
+            }
+            this.currentPage = page;
+            this.doAnimation(page);
+
+            for (let i = 0; i < pages.length; i++) {
+                pages[i].className = (i === ( page - 1) ? 'active' : '');
+            }
+
+        }
     }
 
     /**
