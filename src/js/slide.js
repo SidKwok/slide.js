@@ -28,7 +28,7 @@
         width: 600,
         height: 400,
         autoswitch: {
-            open: true,
+            open: false,
             delay: 5000
         },
         animation: 'slideUp'

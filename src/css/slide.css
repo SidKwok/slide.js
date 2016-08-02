@@ -12,9 +12,6 @@
 }
 
 .slide .pics-layer .pics {
-    /*position: absolute;
-    top: 0px;
-    left: 0px;*/
     transition: 1s;
 }
 .slide .pics-layer .pics img {
