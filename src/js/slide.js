@@ -6,8 +6,15 @@
 (function() {
 
     const Animation = {
-        slideUp(el, page, height) {
-            el.style.top = '-' + (page - 1) * height + 'px';
+        slideUp(page) {
+            this.pics.style.top = '-' + (page - 1) * this.options.height + 'px';
+        },
+        fade(page) {
+            let imgs = this.pics.children;
+
+            for (let i = 0; i < imgs.length; i++) {
+                imgs[i].style.opacity = ((i + 1) === page) ? '1' : '0';
+            }
         }
     }
 
@@ -16,10 +23,11 @@
         width: 600,
         height: 400,
         pagination: true,
-        animation: {
-            open: false,
-            delay: 2000
-        }
+        autoswitch: {
+            open: true,
+            delay: 5000
+        },
+        animation: 'slideUp'
     }
 
     class Slide {
@@ -31,9 +39,9 @@
 
             if (opt) {
                 for (let key in opt) {
-                    if (key === 'animation') {
-                        this.options.animation.open = opt.animation.open;
-                        this.options.animation.delay = opt.animation.delay;
+                    if (key === 'autoswitch') {
+                        this.options.autoswitch.open = opt.autoswitch.open;
+                        this.options.autoswitch.delay = opt.autoswitch.delay;
                     } else {
                         this.options[key] = opt[key];
                     }
@@ -61,6 +69,7 @@
             $el.appendChild(picsLayer)
 
             this.initImgs();
+            this.initAnimation();
 
             if (this.options.pagination) {
                 this.initPagination();
@@ -69,7 +78,7 @@
         initImgs() {
             let srcs = this.options.imgs;
             let pics = this.pics;
-            let { width, height } = this.options;
+            let { width, height, animation } = this.options;
 
             // 设置样式
             pics.setAttribute('class', 'pics');
@@ -83,17 +92,24 @@
             }
         }
         initPagination() {
-            let picsLayer = this.picsLayer;
-            let pics = this.pics;
+            let { picsLayer, pics } = this;
+            let { width, height } = this.options;
             let length = this.options.imgs.length;
             let pagination = document.createElement('div');
-            let { width, height } = this.options;
 
             pagination.setAttribute('class', 'pagination');
 
             // animation
             pagination.addEventListener('click', (event) => {
-                Animation.slideUp(pics, event.target.innerHTML, height)
+                let page = Number.parseInt(event.target.innerHTML);
+                if (page) {
+                    this.doAnimation(page);
+
+                    for (let a of pagination.children) {
+                        a.className = '';
+                    }
+                    event.target.className = 'active';
+                }
             }, false);
 
 
@@ -103,9 +119,40 @@
                 let a = document.createElement('a');
                 a.innerHTML = i + 1;
                 a.href = 'javascript: void(0);';
+                if (i == 0) {
+                    a.className = 'active';
+                }
                 pagination.appendChild(a);
             }
         }
+        initAnimation() {
+            let pics = this.pics;
+            let { width, height, animation } = this.options;
+
+            switch (animation) {
+                case 'slideUp':
+                    pics.style.position = 'absolute';
+                    pics.style.top = '0px';
+                    for (let img of pics.children) {
+                        img.style.display = 'block';
+                    }
+                    this.doAnimation = Animation.slideUp;
+                    break;
+                case 'slideLeft':
+                    break;
+                case 'fade':
+                    let imgs = pics.children;
+                    for (let i = 0; i < imgs.length; i++) {
+                        imgs[i].style.position = 'absolute';
+                        imgs[i].style.opacity = (i === 0) ? '1' : '0';
+                    }
+                    this.doAnimation = Animation.fade;
+                    break;
+                default:
+
+            }
+        }
+        doAnimation() {}
     }
 
     /**
