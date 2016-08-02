@@ -6,7 +6,16 @@
         <link rel="stylesheet" href="dist/css/slide.css">
     </head>
     <body>
-        <h3 id="tag" data-ass="yp" data-a="asdas" class="yoyoyo asd">hello</h3>
+        <div id="slide"></div>
         <script src="/dist/js/slide.js"></script>
+        <script>
+            new Slide('#slide', {
+                imgs: [
+                    './dist/imgs/1.gif',
+                    './dist/imgs/2.gif',
+                    './dist/imgs/3.gif',
+                ]
+            });
+        </script>
     </body>
 </html>
