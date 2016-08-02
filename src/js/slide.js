@@ -1,6 +1,8 @@
 /**
- * small, simple, jQuery-free Slides
- * @author SidKwok
+ * @author Sid Kwok <oceankwok@hotmail.com>
+ * version: 1.0.0
+ * https://github.com/SidKwok/slide.js
+ *
  */
 
 (function() {
@@ -8,6 +10,9 @@
     const Animation = {
         slideUp(page) {
             this.pics.style.top = '-' + (page - 1) * this.options.height + 'px';
+        },
+        slideLeft(page) {
+            this.pics.style.left = '-' + (page - 1) * this.options.width + 'px';
         },
         fade(page) {
             let imgs = this.pics.children;
@@ -139,6 +144,13 @@
                     this.doAnimation = Animation.slideUp;
                     break;
                 case 'slideLeft':
+                    pics.style.position = 'absolute';
+                    pics.style.left = '0px';
+                    pics.style.width = pics.children.length * width + 'px';
+                    for (let img of pics.children) {
+                        img.style.display = 'inline-block';
+                    }
+                    this.doAnimation = Animation.slideLeft;
                     break;
                 case 'fade':
                     let imgs = pics.children;
