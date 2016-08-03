@@ -1,0 +1,6 @@
+{
+  "name": "Slide.js",
+  "tagline": "small, simple, jQuery-free Slides",
+  "body": "### Get everthing suit up\r\n```html\r\n<link rel=\"stylesheet\" href=\"./slide.css\">\r\n<script src=\"./slide.js\"></script>\r\n```\r\n\r\n### Default\r\n```js\r\nnew Slide('#slide', {\r\n    imgs: [\r\n        './dist/imgs/1.gif',\r\n        './dist/imgs/2.gif',\r\n        './dist/imgs/3.gif',\r\n    ]\r\n})\r\n```\r\n\r\n### Animation: slideLeft\r\n```js\r\nnew Slide('#slide', {\r\n    imgs: [\r\n        './dist/imgs/1.gif',\r\n        './dist/imgs/2.gif',\r\n        './dist/imgs/3.gif',\r\n    ],\r\n    animation: 'slideLeft'\r\n})\r\n```\r\n\r\n### Animation: fade\r\n```js\r\nnew Slide('#slide', {\r\n    imgs: [\r\n        './dist/imgs/1.gif',\r\n        './dist/imgs/2.gif',\r\n        './dist/imgs/3.gif',\r\n    ],\r\n    animation: 'fade'\r\n})\r\n```\r\n\r\n### Autoswitch\r\n```js\r\nnew Slide('#slide', {\r\n    imgs: [\r\n        './dist/imgs/1.gif',\r\n        './dist/imgs/2.gif',\r\n        './dist/imgs/3.gif',\r\n    ],\r\n    autoswitch: {\r\n        open: true,\r\n        delay: 3000\r\n    }\r\n})\r\n```\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

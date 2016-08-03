@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Slide.js by SidKwok</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Slide.js</h1>
+      <h2 class="project-tagline">small, simple, jQuery-free Slides</h2>
+      <a href="https://github.com/SidKwok/slide.js" class="btn">View on GitHub</a>
+      <a href="https://github.com/SidKwok/slide.js/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/SidKwok/slide.js/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="get-everthing-suit-up" class="anchor" href="#get-everthing-suit-up" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get everthing suit up</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>./slide.css<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>./slide.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h3>
+<a id="default" class="anchor" href="#default" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Default</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">new</span> <span class="pl-en">Slide</span>(<span class="pl-s"><span class="pl-pds">'</span>#slide<span class="pl-pds">'</span></span>, {
+    imgs<span class="pl-k">:</span> [
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/1.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/2.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/3.gif<span class="pl-pds">'</span></span>,
+    ]
+})</pre></div>
+
+<h3>
+<a id="animation-slideleft" class="anchor" href="#animation-slideleft" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Animation: slideLeft</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">new</span> <span class="pl-en">Slide</span>(<span class="pl-s"><span class="pl-pds">'</span>#slide<span class="pl-pds">'</span></span>, {
+    imgs<span class="pl-k">:</span> [
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/1.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/2.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/3.gif<span class="pl-pds">'</span></span>,
+    ],
+    animation<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>slideLeft<span class="pl-pds">'</span></span>
+})</pre></div>
+
+<h3>
+<a id="animation-fade" class="anchor" href="#animation-fade" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Animation: fade</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">new</span> <span class="pl-en">Slide</span>(<span class="pl-s"><span class="pl-pds">'</span>#slide<span class="pl-pds">'</span></span>, {
+    imgs<span class="pl-k">:</span> [
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/1.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/2.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/3.gif<span class="pl-pds">'</span></span>,
+    ],
+    animation<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fade<span class="pl-pds">'</span></span>
+})</pre></div>
+
+<h3>
+<a id="autoswitch" class="anchor" href="#autoswitch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autoswitch</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">new</span> <span class="pl-en">Slide</span>(<span class="pl-s"><span class="pl-pds">'</span>#slide<span class="pl-pds">'</span></span>, {
+    imgs<span class="pl-k">:</span> [
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/1.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/2.gif<span class="pl-pds">'</span></span>,
+        <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/3.gif<span class="pl-pds">'</span></span>,
+    ],
+    autoswitch<span class="pl-k">:</span> {
+        open<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+        delay<span class="pl-k">:</span> <span class="pl-c1">3000</span>
+    }
+})</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/SidKwok/slide.js">Slide.js</a> is maintained by <a href="https://github.com/SidKwok">SidKwok</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
