@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="dist/css/slide.css" media="screen">
   </head>
   <body>
     <section class="page-header">
@@ -35,6 +36,7 @@
         <span class="pl-s"><span class="pl-pds">'</span>./dist/imgs/3.gif<span class="pl-pds">'</span></span>,
     ]
 })</pre></div>
+<div id="slide1"></div>
 
 <h3>
 <a id="animation-slideleft" class="anchor" href="#animation-slideleft" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Animation: slideLeft</h3>
@@ -47,6 +49,7 @@
     ],
     animation<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>slideLeft<span class="pl-pds">'</span></span>
 })</pre></div>
+<div id="slide2"></div>
 
 <h3>
 <a id="animation-fade" class="anchor" href="#animation-fade" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Animation: fade</h3>
@@ -59,6 +62,7 @@
     ],
     animation<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fade<span class="pl-pds">'</span></span>
 })</pre></div>
+<div id="slide3"></div>
 
 <h3>
 <a id="autoswitch" class="anchor" href="#autoswitch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autoswitch</h3>
@@ -74,6 +78,7 @@
         delay<span class="pl-k">:</span> <span class="pl-c1">3000</span>
     }
 })</pre></div>
+<div id="slide4"></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/SidKwok/slide.js">Slide.js</a> is maintained by <a href="https://github.com/SidKwok">SidKwok</a>.</span>
@@ -83,6 +88,44 @@
 
     </section>
 
-  
+    <script src="./dist/js/slide.js"></script>
+    <script type="text/javascript">
+        new Slide('#slide1', {
+            imgs: [
+                './dist/imgs/1.gif',
+                './dist/imgs/2.gif',
+                './dist/imgs/3.gif',
+            ]
+        });
+        new Slide('#slide2', {
+            imgs: [
+                './dist/imgs/1.gif',
+                './dist/imgs/2.gif',
+                './dist/imgs/3.gif',
+            ],
+            animation: 'slideLeft'
+        });
+        new Slide('#slide3', {
+            imgs: [
+                './dist/imgs/1.gif',
+                './dist/imgs/2.gif',
+                './dist/imgs/3.gif',
+            ],
+            animation: 'fade'
+        });
+        new Slide('#slide4', {
+            imgs: [
+                './dist/imgs/1.gif',
+                './dist/imgs/2.gif',
+                './dist/imgs/3.gif',
+            ],
+            autoswitch: {
+                open: true,
+                delay: 3000
+            },
+            animation: 'slideUp'
+        });
+    </script>
+
   </body>
 </html>
