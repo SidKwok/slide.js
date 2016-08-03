@@ -1,5 +1,7 @@
 # slide.js
-small, simple, jQuery-free Slides
+small(after gzip: 1.41KB), simple, jQuery-free Slides
+
+[live demo and instruction](http://sidkwok.cn/slide.js/)
 
 ## Why I did this?
 just for fun
